@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose=require("mongoose");
+const cors=require("cors");
+const EmployeeModel=require("./model/Employee")
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,11 +18,24 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// mongoose.connect("mongodb://127.0.0.1:27017/employee")
+//     .then(() => console.log('MongoDB connected!'))
+//     .catch(err => console.log(err));
+
+mongoose.connect("mongodb://127.0.0.1:27017/employee", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected!'))
+    .catch(err => console.log(err));
+
+
 app.use('/', indexRouter);
+
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
