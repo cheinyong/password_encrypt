@@ -27,10 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     .then(() => console.log('MongoDB connected!'))
 //     .catch(err => console.log(err));
 
-mongoose.connect("mongodb://127.0.0.1:27017/employee", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected!'))
+mongoose.connect("mongodb://127.0.0.1:27017/employee")
+    .then(() => console.log('MongoDB connected!'))
     .catch(err => console.log(err));
 
 

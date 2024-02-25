@@ -1,13 +1,18 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
+
+
 import * as constants from "constants";
+import "./App.css";
+import { useState } from "react";
+import { Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 import axios from "axios";
-import {createLogger} from "vite";
-import {useNavigate} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css"
+
+
 export default function Signup(){
-    const [name,setName]=useState();
-    const [email,setEmail]=useState();
-    const [password,setPassword]=useState();
+    const [name,setName]=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
     const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -16,12 +21,12 @@ export default function Signup(){
                 console.log(result);
                 navigate('/login')
             })
-            .catch(err=>console.log(err))
+            .catch(err=>console.log(err));
 
     }
     return(<div>
         <div className="container-fluid ">
-            <div className="row main-content bg-success text-center">
+            <div className="row main-content bg-success text-center mx-auto mt-5">
                 <div className="col-md-4 text-center company__info">
                     <span className="company__logo"><h2><span className="fa fa-android"></span></h2></span>
                     <h4 className="company_title">happy</h4>
@@ -32,6 +37,7 @@ export default function Signup(){
                             <h2>Register</h2>
                         </div>
                         <div className="row">
+
                             <form onSubmit={handleSubmit} control="" className="form-group">
                                 <div className="row">
 
@@ -54,7 +60,7 @@ export default function Signup(){
                                 {/*</div>*/}
                                 <div className="row">
                                     <div className="text-center mx-auto">
-                                        <input type="submit" value="Register" className="btn px-1"/>
+                                        <input type="submit" value="Register" className="btn  btn-outline-primary px-1"/>
                                     </div>
 
                                 </div>
@@ -63,7 +69,7 @@ export default function Signup(){
                         <div className="row">
                             <p>already have an account
                             <Link to="/login"
-                                className={"btn btn-outline-primary ms-2 w-25 bg-light rounded-3 text-decoration-none"}>
+                                className={"btn btn-outline-primary ms-2 w-25  rounded-3 text-decoration-none"}>
                                 Login </Link> </p>
                             {/*<a href="#">Register Here</a></p>*/}
 
