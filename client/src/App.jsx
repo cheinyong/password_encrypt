@@ -3,7 +3,7 @@ import "./App.css";
 import Signup from "./Signup.jsx";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Login from "./Login.jsx";
-import Home from "./assets/Home.jsx";
+import Home from "./Home.jsx";
 
 export default function App() {
 
